@@ -17,6 +17,8 @@ namespace LineComparisionOops
         public int A_Two;
         public int B_One;
         public int B_Two;
+        public double Length_XY;
+        public double Length_AB;
         public void length_line()
         {
 
@@ -31,22 +33,32 @@ namespace LineComparisionOops
             Y_Two = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("Enter x, y co ordinates of the line 2 :");
-            Console.WriteLine("Enter value of S_One");
+            Console.WriteLine("Enter value of A_One");
            A_One = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter value of S_Two");
+            Console.WriteLine("Enter value of A_Two");
             A_Two = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter vale R_One");
+            Console.WriteLine("Enter vale B_One");
            B_One = Convert.ToInt32(Console.ReadLine());
-            Console.WriteLine("Enter vale R_Two");
+            Console.WriteLine("Enter vale B_Two");
            B_Two = Convert.ToInt32(Console.ReadLine());
 
             double Length_XY = Math.Sqrt(Math.Pow((X_One - X_Two), 2) + Math.Pow((Y_Two - Y_One), 2));
             Console.WriteLine("Length of Line 1 is:: " + Length_XY);
 
-            double Length_SR = Math.Sqrt(Math.Pow((A_Two - A_One), 2) + Math.Pow((B_Two - B_One), 2));
-            Console.WriteLine("Length of Line 2 is: " + Length_SR);
+            double Length_AB = Math.Sqrt(Math.Pow((A_Two - A_One), 2) + Math.Pow((B_Two - B_One), 2));
+            Console.WriteLine("Length of Line 2 is: " + Length_AB);
             Console.ReadLine();
 
+        }
+        public void function_check()
+        {
+            bool equal_result = Length_XY.Equals(Length_AB);
+
+            if (equal_result == false)
+                Console.WriteLine(" Length of XY and Length of SR are NOT Equal");
+            else
+                Console.WriteLine("Length of XY and Length of SR are Equal");
+            Console.ReadKey();
         }
     }
 }
